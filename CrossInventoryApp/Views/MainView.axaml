@@ -20,6 +20,10 @@
     <Button>Click Me (2)!</Button>
 
     <Button>Click Me (3)!</Button>
+
+    <Button>Click Me (4)!</Button>
+
+    <Button>Click Me (5)!</Button>
     
     <TextBlock>Yes, another Texblock</TextBlock>
   </StackPanel>
