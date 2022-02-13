@@ -4,8 +4,7 @@ using System.Text;
 
 namespace CrossInventoryApp.ViewModels
 {
-    public class MainViewModel : ViewModelBase
+    internal class ListItemsViewModel
     {
-        public string Greeting => "Welcome to Avalonia!";
     }
 }

@@ -6,11 +6,11 @@
         xmlns:views="clr-namespace:CrossInventoryApp.Views"
         mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="450"
         Width="300" Height="450"
-        x:Class="CrossInventoryApp.Views.MainWindow"
+        x:Class="CrossInventoryApp.Views.MainWindowView"
         Icon="/Assets/avalonia-logo.ico"
-        Title="CrossInventoryApp">
+        Title="CrossInventoryApp"
+        Content="{Binding Content}">
   <Design.DataContext>
-    <vm:MainViewModel/>
+    <vm:MainWindowViewModel/>
   </Design.DataContext>
-  <views:MainView />
 </Window>

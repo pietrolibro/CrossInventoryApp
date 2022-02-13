@@ -4,9 +4,9 @@ using Avalonia.Markup.Xaml;
 
 namespace CrossInventoryApp.Views
 {
-    public partial class MainView : UserControl
+    public partial class SearchItemView : UserControl
     {
-        public MainView()
+        public SearchItemView()
         {
             InitializeComponent();
         }

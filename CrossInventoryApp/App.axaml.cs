@@ -17,16 +17,16 @@ namespace CrossInventoryApp
         {
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
-                desktop.MainWindow = new MainWindow
+                desktop.MainWindow = new MainWindowView
                 {
-                    DataContext = new MainViewModel()
+                    DataContext = new MainWindowViewModel()
                 };
             }
             else if (ApplicationLifetime is ISingleViewApplicationLifetime singleViewPlatform)
             {
-                singleViewPlatform.MainView = new MainView
+                singleViewPlatform.MainView = new MainMenuView
                 {
-                    DataContext = new MainViewModel()
+                    DataContext = new MainMenuViewModel()
                 };
             }
 
