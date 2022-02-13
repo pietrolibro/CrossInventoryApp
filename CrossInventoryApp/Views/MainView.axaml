@@ -16,6 +16,10 @@
     <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
     <Button>Click Me!</Button>
+
+    <Button>Click Me (2)!</Button>
+
+    <Button>Click Me (3)!</Button>
     
     <TextBlock>Yes, another Texblock</TextBlock>
   </StackPanel>
