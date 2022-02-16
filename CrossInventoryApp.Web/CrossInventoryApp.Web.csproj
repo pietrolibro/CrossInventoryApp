@@ -5,6 +5,8 @@
     <!--Temporal hack that fixes compilation in VS-->
     <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
     <UserSecretsId>649182eb-88f2-4c8e-9a60-bd781fe8cbab</UserSecretsId>
+    <SignAssembly>True</SignAssembly>
+    <EnableNETAnalyzers>False</EnableNETAnalyzers>
   </PropertyGroup>
 
   <!-- In debug, make builds faster by reducing optimizations -->
@@ -25,7 +27,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.0" PrivateAssets="all" />
-    <PackageReference Include="Avalonia.Web.Blazor" Version="0.10.11" />
+    <PackageReference Include="Avalonia.Web.Blazor" Version="0.10.12" />
     <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="4.6.1-rc">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

@@ -1,8 +1,12 @@
 using Avalonia;
-using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
+using Avalonia.Controls.ApplicationLifetimes;
+
 using CrossInventoryApp.ViewModels;
 using CrossInventoryApp.Views;
+
+using Microsoft.Extensions.DependencyInjection;
+
 
 namespace CrossInventoryApp
 {
@@ -15,11 +19,14 @@ namespace CrossInventoryApp
 
         public override void OnFrameworkInitializationCompleted()
         {
+            IServiceCollection services = new ServiceCollection()
+                .AddSingleton<Services.IInventoryRepository>(new Services.InventoryRepository());
+
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
                 desktop.MainWindow = new MainWindowView
                 {
-                    DataContext = new MainWindowViewModel()
+                    DataContext = new MainWindowViewModel(services)
                 };
             }
             else if (ApplicationLifetime is ISingleViewApplicationLifetime singleViewPlatform)

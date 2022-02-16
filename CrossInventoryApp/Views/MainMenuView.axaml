@@ -2,11 +2,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:viewModels="clr-namespace:CrossInventoryApp.ViewModels"
              mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="450"
-             x:Class="CrossInventoryApp.Views.MainMenuView"
-             Foreground="White"
-             Background="#171C2C">
+             x:Class="CrossInventoryApp.Views.MainMenuView">
   <UserControl.Resources>
     <!--http://avaloniaui.github.io/icons.html-->
     <RadialGradientBrush x:Key="path_gradiend_brush">
@@ -34,22 +31,24 @@
              CornerRadius="5"
              VerticalAlignment="Center"
              HorizontalAlignment="Center">
-      <Button Width="180">
+      <Button Width="200" Command="{Binding $parent[Window].DataContext.ListItemsCommand}">
         <StackPanel Orientation="Horizontal">
           <Path Stretch="Uniform" Width="48" Height="48"
                 Data="{StaticResource ResourceKey=grid_regular}"
                 Fill="{StaticResource ResourceKey=path_gradiend_brush}">
 
           </Path>
-          <TextBlock Margin="10,0" VerticalAlignment="Center">Search Item</TextBlock>
+          <TextBlock Margin="10,0" VerticalAlignment="Center">Inventoried Items</TextBlock>
         </StackPanel>
       </Button>
     </Border>
 
     <Border  Grid.Row="1" Grid.Column="0"
+             BorderBrush="Gray" BorderThickness="3" 
+             CornerRadius="5"
              VerticalAlignment="Center"
              HorizontalAlignment="Center">
-      <Button Width="180">
+      <Button Width="200" Command="{Binding $parent[Window].DataContext.AddNewItemCommand}">
         <StackPanel Orientation="Horizontal">
           <Path Stretch="Uniform" Width="48" Height="48"
                 Data="{StaticResource ResourceKey=form_new_regular}"
@@ -62,9 +61,11 @@
     </Border>
 
     <Border  Grid.Row="2" Grid.Column="0"
+             BorderBrush="Gray" BorderThickness="3" 
+             CornerRadius="5"
              VerticalAlignment="Center"
              HorizontalAlignment="Center">
-      <Button Width="180">
+      <Button Width="200">
         <StackPanel Orientation="Horizontal">
           <Path Stretch="Uniform" Width="48" Height="48"
                 Data="{StaticResource ResourceKey=search_regular}"
@@ -77,9 +78,11 @@
     </Border>
 
     <Border  Grid.Row="3" Grid.Column="0"
+             BorderBrush="Gray" BorderThickness="3" 
+             CornerRadius="5"
              VerticalAlignment="Center"
              HorizontalAlignment="Center">
-      <Button Width="180" Command="{Binding $parent[Window].DataContext.OpenCloseAppWindowCommand}">
+      <Button Width="200" Command="{Binding $parent[Window].DataContext.OpenCloseAppWindowCommand}">
         <StackPanel Orientation="Horizontal">
           <Path Stretch="Uniform" Width="48" Height="48"
                 Data="{StaticResource ResourceKey=sign_out_regular}"

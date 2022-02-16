@@ -48,7 +48,7 @@
              HorizontalAlignment="Center">
       <Button Width="110" Command="{Binding CloseCommand}">
         <StackPanel Orientation="Horizontal">
-          <Path Stretch="Uniform" Width="48" Height="48"
+          <Path Stretch="Uniform" Width="36" Height="36"
                 Data="{StaticResource ResourceKey=form_new_regular}"
                 Fill="{StaticResource ResourceKey=path_gradiend_brush}">
 
@@ -65,7 +65,7 @@
              HorizontalAlignment="Center">
       <Button Width="110" Command="{Binding CancelCommand}">
         <StackPanel Orientation="Horizontal">
-          <Path Stretch="Uniform" Width="48" Height="48"
+          <Path Stretch="Uniform" Width="36" Height="36"
                 Data="{StaticResource ResourceKey=form_new_regular}"
                 Fill="{StaticResource ResourceKey=path_gradiend_brush}">
 
