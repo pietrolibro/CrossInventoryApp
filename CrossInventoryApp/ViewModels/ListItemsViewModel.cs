@@ -21,6 +21,11 @@ namespace CrossInventoryApp.ViewModels
         public DataGridCollectionView GridCollectionFilteredItems { get; }
         public ObservableCollection<InventoryItem> ObservalbeItems { get; }
 
+        public ListItemsViewModel()
+        {
+
+        }
+
         public ListItemsViewModel(IList<InventoryItem> items)
         {
             // It's an example, we know that we are loading just a bunch of items.

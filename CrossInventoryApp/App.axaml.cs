@@ -2,8 +2,8 @@ using Avalonia;
 using Avalonia.Markup.Xaml;
 using Avalonia.Controls.ApplicationLifetimes;
 
-using CrossInventoryApp.ViewModels;
 using CrossInventoryApp.Views;
+using CrossInventoryApp.ViewModels;
 
 using Microsoft.Extensions.DependencyInjection;
 
@@ -31,9 +31,9 @@ namespace CrossInventoryApp
             }
             else if (ApplicationLifetime is ISingleViewApplicationLifetime singleViewPlatform)
             {
-                singleViewPlatform.MainView = new MainMenuView
+                singleViewPlatform.MainView = new MainView
                 {
-                    DataContext = new MainMenuViewModel()
+                    DataContext = new MainViewModel(services)
                 };
             }
 

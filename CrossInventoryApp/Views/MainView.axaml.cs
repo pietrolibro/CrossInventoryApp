@@ -4,9 +4,9 @@ using Avalonia.Markup.Xaml;
 
 namespace CrossInventoryApp.Views
 {
-    public partial class AddNewItemView : UserControl
+    public partial class MainView : UserControl
     {
-        public AddNewItemView()
+        public MainView()
         {
             InitializeComponent();
         }
@@ -14,11 +14,6 @@ namespace CrossInventoryApp.Views
         private void InitializeComponent()
         {
             AvaloniaXamlLoader.Load(this);
-
-            TextBox codeTextBox = this.FindControl<TextBox>("codeTextBox");
-
-            if(codeTextBox != null) codeTextBox.Focus();
         }
-
     }
 }

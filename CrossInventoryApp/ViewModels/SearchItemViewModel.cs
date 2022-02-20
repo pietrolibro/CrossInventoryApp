@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace CrossInventoryApp.ViewModels
+﻿namespace CrossInventoryApp.ViewModels
 {
-    internal class SearchItemViewModel
+    public class SearchItemViewModel : ViewModelBase
     {
     }
 }

@@ -1,12 +1,13 @@
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
+using System;
 
 namespace CrossInventoryApp.Views
 {
-    public partial class MainMenuView : UserControl
+    public partial class MenuView : UserControl
     {
-        public MainMenuView()
+        public MenuView()
         {
             InitializeComponent();
         }
@@ -14,6 +15,11 @@ namespace CrossInventoryApp.Views
         private void InitializeComponent()
         {
             AvaloniaXamlLoader.Load(this);
+        }
+
+        public static implicit operator MenuView?(MainView? v)
+        {
+            throw new NotImplementedException();
         }
     }
 }

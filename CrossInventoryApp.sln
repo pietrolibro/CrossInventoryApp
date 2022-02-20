@@ -11,6 +11,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrossInventoryApp.Web", "Cr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossInventoryApp.Phone", "CrossInventoryApp.Phone\CrossInventoryApp.Phone.csproj", "{A47C33DF-FA1F-4F4B-841D-11B2D79FAC8B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{0321764B-9625-48DB-B900-A47E574519EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossInventoryApp.UITests", "CrossInventoryApp.UITests\CrossInventoryApp.UITests.csproj", "{A0F55ED4-6EF6-40C7-A147-F4AE6CAE6706}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,9 +39,16 @@ Global
 		{A47C33DF-FA1F-4F4B-841D-11B2D79FAC8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A47C33DF-FA1F-4F4B-841D-11B2D79FAC8B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A47C33DF-FA1F-4F4B-841D-11B2D79FAC8B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{A0F55ED4-6EF6-40C7-A147-F4AE6CAE6706}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0F55ED4-6EF6-40C7-A147-F4AE6CAE6706}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0F55ED4-6EF6-40C7-A147-F4AE6CAE6706}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0F55ED4-6EF6-40C7-A147-F4AE6CAE6706}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A0F55ED4-6EF6-40C7-A147-F4AE6CAE6706} = {0321764B-9625-48DB-B900-A47E574519EE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BCE9AA9D-8466-4961-BDD6-CA83AF7F9147}
