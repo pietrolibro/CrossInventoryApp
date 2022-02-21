@@ -10,10 +10,6 @@
              d:DataContext="{x:Static dd:DesignData.AddNewItemViewModel}"
              x:Class="CrossInventoryApp.Views.AddNewItemView">
 
-  <Design.DataContext>
-    <vm:AddNewItemViewModel/>
-  </Design.DataContext>
-
   <UserControl.Resources>
     <!--http://avaloniaui.github.io/icons.html-->
     <RadialGradientBrush x:Key="path_gradiend_brush">
@@ -31,10 +27,17 @@
     <Style Selector="TextBox">
       <Setter Property="Background" Value="Yellow"/>
     </Style>
+
     <Style Selector="NumericUpDown">
       <Setter Property="Background" Value="Yellow"/>
     </Style>
   </UserControl.Styles>
+
+  <!--<i:Interaction.Behaviors>
+    <ia:EventTriggerBehavior EventName="LayoutUpdated" SourceObject="{Binding RelativeSource={RelativeSource Self}}">
+      <ia:CallMethodAction TargetObject="{Binding ElementName=codeTextBox}" MethodName="Focus" />
+    </ia:EventTriggerBehavior>
+  </i:Interaction.Behaviors>-->
 
   <Grid ShowGridLines="False" Margin="10">
     <Grid.RowDefinitions>
@@ -52,29 +55,19 @@
 
     <TextBlock Grid.Row="0">Code Number</TextBlock>
 
-    <TextBox x:Name="codeTextBox" Grid.Row="1" Margin="5" Text="{Binding Code}"
-             KeyboardNavigation.TabIndex="0">
-      
-      <!--<i:Interaction.Behaviors>
-        <ia:EventTriggerBehavior EventName="LayoutUpdated" SourceObject="{Binding RelativeSource={RelativeSource Self}}">
-          <ia:CallMethodAction TargetObject="{Binding ElementName=codeTextBox}" MethodName="Focus" />
-        </ia:EventTriggerBehavior>
-      </i:Interaction.Behaviors>-->
-
+    <TextBox x:Name="codeTextBox" Grid.Row="1" Margin="5" Text="{Binding Code}">
     </TextBox>
 
     <TextBlock Grid.Row="2">Description</TextBlock>
 
-    <TextBox Grid.Row="3" Grid.RowSpan="2" Margin="5"
-             Text="{Binding Description}"
-             KeyboardNavigation.TabIndex="1"></TextBox>
+    <TextBox x:Name="descriptionTextBox" Grid.Row="3" Grid.RowSpan="2" Margin="5"
+             Text="{Binding Description}"></TextBox>
 
     <TextBlock Grid.Row="5">Actuall quantity</TextBlock>
 
-    <NumericUpDown Grid.Row="6" Margin="5" Value="{Binding Quantity}" TabIndex="2" Width="150"
-                   HorizontalAlignment="Left" HorizontalContentAlignment="Right"
-                   KeyboardNavigation.TabIndex="2">
-
+    <NumericUpDown Grid.Row="6" Margin="5" x:Name="actualQuantityNumericUpDown"
+                   Value="{Binding Quantity}" Width="150"
+                   HorizontalAlignment="Left" HorizontalContentAlignment="Right">
     </NumericUpDown>
 
     <!--<TextBlock Grid.Row="7">Inventory Date</TextBlock>
@@ -84,7 +77,7 @@
 
       <Border  Grid.Row="2" Grid.Column="1" Classes="MainBorder">
         <Button  Classes="PageButton" Command="{Binding SaveNewItemCommand}"
-                 KeyboardNavigation.TabIndex="3">
+                 KeyboardNavigation.TabIndex="3" HotKey="ALT+S">
           <StackPanel Orientation="Horizontal">
             <Path  Classes="PageButtonImage"
                   Data="{StaticResource ResourceKey=save_as_regular}"
@@ -95,9 +88,9 @@
         </Button>
       </Border>
 
-      <Border  Grid.Row="2" Grid.Column="1" Classes="MainBorder">
+      <Border Grid.Row="2" Grid.Column="1" Classes="MainBorder">
         <Button Classes="PageButton" Command="{Binding CancelNewItemCommand}"
-                KeyboardNavigation.TabIndex="4">
+                KeyboardNavigation.TabIndex="4"  HotKey="ALT+C">
           <StackPanel Orientation="Horizontal">
             <Path Classes="PageButtonImage"
                   Data="{StaticResource ResourceKey=sign_out_regular}"

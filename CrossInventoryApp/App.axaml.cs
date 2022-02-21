@@ -17,10 +17,14 @@ namespace CrossInventoryApp
             AvaloniaXamlLoader.Load(this);
         }
 
+        public ServiceProvider ServiceProvider { get; private set; }
+
         public override void OnFrameworkInitializationCompleted()
         {
             IServiceCollection services = new ServiceCollection()
                 .AddSingleton<Services.IInventoryRepository>(new Services.InventoryRepository());
+
+            this.ServiceProvider =services.BuildServiceProvider();
 
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {

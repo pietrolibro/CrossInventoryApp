@@ -35,7 +35,7 @@ namespace CrossInventoryApp.ViewModels
 
         public MainViewModel(IServiceCollection collection)
         {
-            this._serviceProvider = collection.BuildServiceProvider();
+            this._serviceProvider = (App.Current as CrossInventoryApp.App).ServiceProvider; // collection.BuildServiceProvider();
             this._inventoryRepository =this._serviceProvider.GetService<IInventoryRepository>();
 
             OpenCloseAppWindowCommand = ReactiveCommand.Create(this.OpenCloseAppWindow);

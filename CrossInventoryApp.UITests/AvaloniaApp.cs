@@ -15,12 +15,7 @@ namespace CrossInventoryApp.UITests
     {
         public static void RegisterDependencies()
         {
-            //var config = new DataAccessConfiguration
-            //{
-            //    UseInMemoryDatabase = true
-            //};
-
-            //Bootstrapper.Register(Locator.CurrentMutable, Locator.Current, config);
+         
         }
 
         public static void Stop()
@@ -43,7 +38,7 @@ namespace CrossInventoryApp.UITests
             AppBuilder
                 .Configure<App>()
                 .UsePlatformDetect()
-                .UseReactiveUI();
-                //.UseHeadless();
+                .UseReactiveUI()
+                .UseHeadless();
     }
 }
