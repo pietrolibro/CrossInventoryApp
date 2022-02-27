@@ -13,6 +13,10 @@ namespace CrossInventoryApp.Views
         public MainWindowView()
         {
             InitializeComponent();
+
+#if DEBUG
+            this.AttachDevTools();
+#endif
         }
 
         private void InitializeComponent()

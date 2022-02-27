@@ -3,6 +3,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:dd="clr-namespace:CrossInventoryApp;assembly=CrossInventoryApp"
+             xmlns:res="clr-namespace:CrossInventoryApp.Properties;assembly=CrossInventoryApp"
              xmlns:vm="using:CrossInventoryApp.ViewModels"
              mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="900"
              d:DataContext="{x:Static dd:DesignData.MenuViewModel}"
@@ -22,14 +23,38 @@
   </UserControl.Resources>
 
   <UserControl.Styles>
+    <!-- file with the app styles -->
     <StyleInclude Source="/CustomStyles.axaml" />
 
+    <!-- Textblox with selector -->
     <Style Selector="TextBlock.H1">
       <Setter Property="HorizontalAlignment"  Value="Center"/>
       <Setter Property="VerticalAlignment" Value="Center"/>
       <Setter Property="FontSize" Value="16"/>
       <Setter Property="FontStyle" Value="Normal" />
       <Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+
+    <!-- round button style -->
+    <Style Selector="Button.toolbar">
+      <Setter Property="Margin" Value="9,3,9,3"/>
+      <Setter Property="Width" Value="40"/>
+      <Setter Property="Height" Value="40"/>
+      <Setter Property="BorderThickness" Value="0"/>
+      <Setter Property="Background" Value="LightGray"/>
+      <Setter Property="Foreground" Value="White"/>
+      <Setter Property="FontWeight" Value="Bold"/>
+      <Setter Property="Padding" Value="3"/>
+    </Style>
+
+    <Style Selector="Button.toolbar /template/ ContentPresenter">
+      <Setter Property="CornerRadius" Value="20"/>
+      <Setter Property="VerticalContentAlignment" Value="Center"/>
+      <Setter Property="HorizontalContentAlignment" Value="Center"/>
+    </Style>
+
+    <Style Selector="Button:pointerover.toolbar /template/ ContentPresenter">
+      <Setter Property="Background" Value="LightGreen"/>
     </Style>
 
     <!--<Style Selector="Button.MainButton">
@@ -53,23 +78,24 @@
 
   <Grid ShowGridLines="False">
     <Grid.RowDefinitions>
-      <RowDefinition Height="0.1*"></RowDefinition>
-      <RowDefinition Height="0.1*"></RowDefinition>
-      <RowDefinition Height="0.1*"></RowDefinition>
-      <RowDefinition Height="0.1*"></RowDefinition>
-      <RowDefinition Height="0.1*"></RowDefinition>
-      <RowDefinition Height="0.5*"></RowDefinition>
+      <RowDefinition Height="30"></RowDefinition>
+      <RowDefinition Height="80"></RowDefinition>
+      <RowDefinition Height="80"></RowDefinition>
+      <RowDefinition Height="80"></RowDefinition>
+      <RowDefinition Height="80"></RowDefinition>
+      <RowDefinition Height="80"></RowDefinition>
+      <RowDefinition Height="80*"></RowDefinition>
     </Grid.RowDefinitions>
+
+    <TextBlock Grid.Row="0" Grid.Column="0" Classes="H1"
+               Text="{x:Static res:Resources.MainViewTitle}"></TextBlock>
+
 
     <!--<Border  Grid.Row="1" Grid.Column="0"
              BorderBrush="Gray" BorderThickness="3"
              CornerRadius="5"
             VerticalAlignment="Top"
              HorizontalAlignment="Center">-->
-    <TextBlock Grid.Row="0" Grid.Column="0" Classes="H1">
-      A cross platform Inventory app
-    </TextBlock>
-
     <Border  Grid.Row="1" Grid.Column="0" Classes="MainBorder">
       <Button Classes="MainButton"  Command="{Binding MainView.ListItemsCommand}"
                KeyboardNavigation.TabIndex="0">
@@ -78,7 +104,8 @@
                 Data="{StaticResource ResourceKey=grid_regular}"
                 Fill="{StaticResource ResourceKey=path_gradiend_brush}">
           </Path>
-          <TextBlock Classes="TextPageButton">Inventoried Items</TextBlock>
+          <!--Resources could be used as static objects in views.-->
+          <TextBlock Classes="TextPageButton" Text="{x:Static res:Resources.MainViewInventoriedItems}"></TextBlock>
         </StackPanel>
       </Button>
     </Border>
@@ -91,7 +118,7 @@
                 Data="{StaticResource ResourceKey=form_new_regular}"
                 Fill="{StaticResource ResourceKey=path_gradiend_brush}">
           </Path>
-          <TextBlock Classes="TextPageButton">New Item</TextBlock>
+          <TextBlock Classes="TextPageButton" Text="{x:Static res:Resources.MainViewNewItem}"></TextBlock>
         </StackPanel>
       </Button>
     </Border>
@@ -103,7 +130,7 @@
                 Data="{StaticResource ResourceKey=search_regular}"
                 Fill="{StaticResource ResourceKey=path_gradiend_brush}">
           </Path>
-          <TextBlock Classes="TextPageButton">Search Item</TextBlock>
+          <TextBlock Classes="TextPageButton" Text="{x:Static res:Resources.MainViewSearchItems}" ></TextBlock>
         </StackPanel>
       </Button>
     </Border>
@@ -116,10 +143,25 @@
                 Data="{StaticResource ResourceKey=sign_out_regular}"
                 Fill="{StaticResource ResourceKey=path_gradiend_brush}">
           </Path>
-          <TextBlock Classes="TextPageButton">Exit</TextBlock>
+          <TextBlock Classes="TextPageButton" Text="{x:Static res:Resources.MainViewCloseApp}"></TextBlock>
         </StackPanel>
       </Button>
     </Border>
+    
+    <!--<StackPanel Grid.Row="5" Grid.Column="0"  HorizontalAlignment="Center" Orientation="Horizontal">
+      <TextBox>Hello World!</TextBox>
+    </StackPane>-->
+      
+
+    <StackPanel Grid.Row="5" Grid.Column="0" HorizontalAlignment="Center" Orientation="Horizontal">
+      <Button Classes="toolbar" Command="{Binding MainView.ChangeCultureCommand}" CommandParameter="it-IT" >
+        ITA
+      </Button>
+
+      <Button Classes="toolbar" Command="{Binding MainView.ChangeCultureCommand}" CommandParameter="en-US" >
+        ENG
+      </Button>
+    </StackPanel>
 
   </Grid>
 

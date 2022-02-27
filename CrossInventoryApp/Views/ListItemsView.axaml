@@ -3,6 +3,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:dd="clr-namespace:CrossInventoryApp;assembly=CrossInventoryApp"
+             xmlns:res="clr-namespace:CrossInventoryApp.Properties;assembly=CrossInventoryApp"
              xmlns:model="using:CrossInventoryApp.Models"
              xmlns:vm="using:CrossInventoryApp.ViewModels"
              mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="450"
@@ -47,10 +48,10 @@
       <DataGrid Name="MyDataGrid" Grid.Row="0" Grid.Column="0" Items="{Binding GridCollectionFilteredItems}"
                 AutoGenerateColumns="False" >
         <DataGrid.Columns>
-          <DataGridTextColumn Header="Item Code" Binding="{Binding Code}" Width="130"  HeaderTemplate="{StaticResource CodeHeader}" />
-          <DataGridTextColumn Header="Item Description" Binding="{Binding Description}" Width="250" />
+          <DataGridTextColumn Header="{x:Static res:Resources.ListItemsViewItemCodeColHeader}" Binding="{Binding Code}" Width="130"  HeaderTemplate="{StaticResource CodeHeader}" />
+          <DataGridTextColumn Header="{x:Static res:Resources.ListItemsViewItemDescriptionColHeader}" Binding="{Binding Description}" Width="250" />
 
-          <DataGridTemplateColumn Header="Q.ty" CellStyleClasses="ActualQuantity">
+          <DataGridTemplateColumn Header="{x:Static res:Resources.ListItemsViewItemQuantityCollHeader}" CellStyleClasses="ActualQuantity">
             <DataGridTemplateColumn.CellTemplate>
               <DataTemplate DataType="model:InventoryItem">
                 <TextBlock Text="{Binding ActualQuantity}" VerticalAlignment="Center" HorizontalAlignment="Center" />
@@ -63,7 +64,7 @@
             </DataGridTemplateColumn.CellEditingTemplate>
           </DataGridTemplateColumn>
 
-          <DataGridTextColumn Header="Last Update" Binding="{Binding LastInventoryUpdate}" Width="100" />
+          <DataGridTextColumn Header="{x:Static res:Resources.ListItemsViewItemLastUpdateCollHeader}" Binding="{Binding LastInventoryUpdate}" Width="100" />
 
           <DataGridTemplateColumn Header="">
             <DataGridTemplateColumn.CellTemplate>
@@ -90,7 +91,7 @@
                     Fill="{StaticResource ResourceKey=path_gradiend_brush}">
 
               </Path>
-              <TextBlock Margin="10,0" VerticalAlignment="Center">Save</TextBlock>
+              <TextBlock Margin="10,0" VerticalAlignment="Center" Text="{x:Static res:Resources.ListItemsViewItemSaveButton}"></TextBlock>
             </StackPanel>
           </Button>
         </Border>
@@ -102,7 +103,7 @@
                     Data="{StaticResource ResourceKey=sign_out_regular}"
                     Fill="{StaticResource ResourceKey=path_gradiend_brush}">
               </Path>
-              <TextBlock Margin="10,0" VerticalAlignment="Center">Cancel</TextBlock>
+              <TextBlock Margin="10,0" VerticalAlignment="Center" Text="{x:Static res:Resources.ListItemsViewItemCancelButton}" ></TextBlock>
             </StackPanel>
           </Button>
         </Border>

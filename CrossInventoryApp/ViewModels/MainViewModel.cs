@@ -6,6 +6,11 @@ using CrossInventoryApp.Services;
 
 using ReactiveUI;
 using Microsoft.Extensions.DependencyInjection;
+using System.Threading;
+using System.Globalization;
+using Avalonia.Threading;
+using CrossInventoryApp.Properties;
+using System.Threading.Tasks;
 
 namespace CrossInventoryApp.ViewModels
 {
@@ -13,7 +18,7 @@ namespace CrossInventoryApp.ViewModels
     {
         private ViewModelBase _content = null;
 
-        private readonly MenuViewModel _menuViewModel=null;
+        private readonly MenuViewModel _menuViewModel = null;
         private readonly ServiceProvider _serviceProvider = null;
         private readonly IInventoryRepository _inventoryRepository = null;
 
@@ -21,6 +26,8 @@ namespace CrossInventoryApp.ViewModels
         public ReactiveCommand<Unit, Unit> AddNewItemCommand { get; }
         public ReactiveCommand<Unit, Unit> SearchItemCommand { get; }
         public ReactiveCommand<Unit, Unit> OpenCloseAppWindowCommand { get; }
+
+        public ReactiveCommand<string, string> ChangeCultureCommand { get; }
 
         public ViewModelBase Content
         {
@@ -36,16 +43,16 @@ namespace CrossInventoryApp.ViewModels
         public MainViewModel(IServiceCollection collection)
         {
             this._serviceProvider = (App.Current as CrossInventoryApp.App).ServiceProvider; // collection.BuildServiceProvider();
-            this._inventoryRepository =this._serviceProvider.GetService<IInventoryRepository>();
+            this._inventoryRepository = this._serviceProvider.GetService<IInventoryRepository>();
 
             OpenCloseAppWindowCommand = ReactiveCommand.Create(this.OpenCloseAppWindow);
             AddNewItemCommand = ReactiveCommand.Create(this.AddNewItem);
             ListItemsCommand = ReactiveCommand.Create(this.ListItems);
+            ChangeCultureCommand = ReactiveCommand.Create<string,string>(this.ChangeCulture);
 
+            //Search = ReactiveCommand.CreateAsyncTask(canSearch, async _ => { return await GetSearchResultFromBing(this.SearchTerm); });
             Content = _menuViewModel = new MenuViewModel(this);
         }
-
- 
 
         public void OpenCloseAppWindow()
         {
@@ -104,6 +111,17 @@ namespace CrossInventoryApp.ViewModels
             vm.CancelNewItemCommand.Subscribe(_ => { Content = _menuViewModel; });
 
             Content = vm;
+        }
+
+
+        public string ChangeCulture(string languageCode)
+        {
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo(languageCode);
+            Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo(languageCode);
+
+            Resources.Culture = new CultureInfo(languageCode);
+
+            return languageCode;
         }
     }
 }

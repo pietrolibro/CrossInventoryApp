@@ -3,8 +3,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:dd="clr-namespace:CrossInventoryApp;assembly=CrossInventoryApp"
+             xmlns:res="clr-namespace:CrossInventoryApp.Properties;assembly=CrossInventoryApp"
              xmlns:vm="using:CrossInventoryApp.ViewModels"
-             mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="450"
+             mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="450"            
              d:DataContext="{x:Static dd:DesignData.CloseAppViewModel}"
              x:Class="CrossInventoryApp.Views.CloseAppView">
 
@@ -50,7 +51,7 @@
                   Fill="{StaticResource ResourceKey=path_gradiend_brush}">
 
             </Path>
-            <TextBlock Classes="TextPageButton">YES</TextBlock>
+            <TextBlock Classes="TextPageButton" Text="{x:Static res:Resources.CloseAppViewYesButton}"></TextBlock>
           </StackPanel>
         </Button>
       </Border>
@@ -63,7 +64,7 @@
                   Fill="{StaticResource ResourceKey=path_gradiend_brush}">
 
             </Path>
-            <TextBlock Classes="TextPageButton">NO</TextBlock>
+            <TextBlock Classes="TextPageButton" Text="{x:Static res:Resources.CloseAppViewNoButton}"></TextBlock>
           </StackPanel>
         </Button>
       </Border>

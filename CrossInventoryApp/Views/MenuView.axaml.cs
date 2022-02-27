@@ -15,11 +15,8 @@ namespace CrossInventoryApp.Views
         private void InitializeComponent()
         {
             AvaloniaXamlLoader.Load(this);
-        }
 
-        public static implicit operator MenuView?(MainView? v)
-        {
-            throw new NotImplementedException();
+            string a = CrossInventoryApp.Properties.Resources.MainViewCloseApp;
         }
     }
 }
